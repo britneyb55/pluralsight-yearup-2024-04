@@ -4,8 +4,8 @@ public class BasicFloatingPointMathApp
 {
     public static void main(String[] args)
     {
-        float first = 10;
-        float second = 3;
+        float first = 10; // 10.0
+        float second = 3;// 3.0
         float result;
 
         result = first + second;
@@ -20,7 +20,7 @@ public class BasicFloatingPointMathApp
         result = first / second;
         System.out.println(result);  // displays 3.3333333
 
-        result = first % second;
+        result = first % second; //use modulus for integer or whole number
         System.out.println(result);  // displays 1.0
 
         result = second - (first % second);

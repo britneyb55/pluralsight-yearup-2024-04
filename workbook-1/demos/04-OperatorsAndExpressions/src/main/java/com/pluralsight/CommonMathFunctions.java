@@ -37,7 +37,7 @@ public class CommonMathFunctions
 
         // calculating the squareroot of a value
         int squaredNumber = 81;
-        double squareRootValue = Math.sqrt(squaredValue);
+        double squareRootValue = Math.sqrt(squaredNumber);
         System.out.println("The square root of 81 is " + squareRootValue);
     }
 }

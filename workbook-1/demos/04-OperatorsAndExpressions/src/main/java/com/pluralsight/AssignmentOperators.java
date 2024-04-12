@@ -16,12 +16,13 @@ public class AssignmentOperators
         // countdown
         int countDown = 10;
         countDown = countDown - 1;
-        countDown -= 1;
-        countDown--;
+        countDown -= 1; // countdown -=5;
+        countDown--; // its just 1 for ++
         System.out.println("countDown started at 10, and decremented 3 times: " + counter);
 
 
         // other assignment operators
+        System.out.println();
         int numberOfStudents;
 
         // adding
@@ -68,5 +69,7 @@ public class AssignmentOperators
         System.out.println("println( ++value ) = " + ++value);
         System.out.println("value = " + value);
         System.out.println();
+
+
     }
 }

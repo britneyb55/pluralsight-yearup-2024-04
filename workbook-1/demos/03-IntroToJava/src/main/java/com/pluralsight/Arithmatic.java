@@ -4,7 +4,7 @@ public class Arithmatic
 {
     public static void main(String[] args)
     {
-        //type casting 
+        //type casting
         // Expression
         // An Expression is a calculation that results in a single value
         // 5 + 4 = 9 // one expression
