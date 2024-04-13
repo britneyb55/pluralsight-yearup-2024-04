@@ -14,7 +14,7 @@ public class PayrollCalculator
         float hoursWorked;
         float PayRate;
         float GrossPay;
-        float overTimerate = 1.5f;
+        float overTimeRate = 1.5f;
         float OvertimeHours;
         float overPay;
 
@@ -31,17 +31,18 @@ public class PayrollCalculator
 
         GrossPay = hoursWorked * PayRate;
 
-        System.out.printf("%s gross pay is %.2f \n", EmployeeName, GrossPay);
+        System.out.printf("%s gross pay is $ %.2f \n", EmployeeName, GrossPay);
 
-        if (hoursWorked > 40) {
+        //over 40hours calculation
+        if (hoursWorked > 40)
+        {
             OvertimeHours = hoursWorked - 40;
-            overPay = OvertimeHours * PayRate * overTimerate;
+            overPay = OvertimeHours * PayRate * overTimeRate;
 
-            System.out.printf("Your overtime pay rate is %.2f \n", overPay);
+            System.out.printf("Your overtime pay rate is $ %.2f \n", overPay);
         }
 
-
-
+        System.out.println(" Hello World n");
 
 
 
