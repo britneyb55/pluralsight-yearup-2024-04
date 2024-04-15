@@ -80,6 +80,11 @@ public class SandwichE2 {
 
 
         System.out.printf("The total is $ %.2f \n", finalprice);
+        System.out.print("Thank you for shopping!");
+
+
+
+
 
 
 
