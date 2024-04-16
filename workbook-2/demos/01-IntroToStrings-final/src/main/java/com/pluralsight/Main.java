@@ -29,6 +29,7 @@ public class Main
 
         System.out.println("Phone: " + phone);
         System.out.println("Phone: " + formattedPhone);
+        
     }
 
     public static void formatPhoneNumber()

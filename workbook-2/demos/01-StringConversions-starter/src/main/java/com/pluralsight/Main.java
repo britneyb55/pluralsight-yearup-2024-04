@@ -7,7 +7,9 @@ import java.util.regex.Pattern;
 public class Main
 {
     public static void main(String[] args)
+
     {
+        convertDatesCustom();
     }
 
     public static void splittingStrings()
@@ -31,6 +33,9 @@ public class Main
     {
         String userInput = "2002-10-17";
         LocalDate birthDay = LocalDate.parse(userInput);
+
+        System.out.println(birthDay.getMonth());
+        System.out.println(birthDay.getMonthValue());
     }
 
     public static void convertDatesCustom()
@@ -45,5 +50,6 @@ public class Main
         userInput = "7 Oct 2002";
         formatter = DateTimeFormatter.ofPattern("d MMM yyyy");
         birthDay = LocalDate.parse(userInput, formatter);
-    }
+        System.out.println(birthDay);
+
 }

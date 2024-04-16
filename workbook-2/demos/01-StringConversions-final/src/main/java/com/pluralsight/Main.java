@@ -70,5 +70,7 @@ public class Main
         userInput = "7 Oct 2002";
         formatter = DateTimeFormatter.ofPattern("d MMM yyyy");
         birthDay = LocalDate.parse(userInput, formatter);
+
+        
     }
 }

@@ -39,7 +39,7 @@ public class FullNameApplication {
             System.out.printf("Full name: %s %s %s, %s", first_name, middle_name, last_name, user_suffix);
 
         }
-        
+
     }
 
 }
