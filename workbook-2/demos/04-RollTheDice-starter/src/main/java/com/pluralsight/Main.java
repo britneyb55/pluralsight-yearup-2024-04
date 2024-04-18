@@ -57,7 +57,7 @@ public class Main
                 continue;
             }
 
-          System.out.printf("Roll %d: %d - %d Sum: %d\n", i, dice1, dice2, addition);
+        System.out.printf("Roll %d: %d - %d Sum: %d\n", i, dice1, dice2, addition);
         }
 
         System.out.println();
