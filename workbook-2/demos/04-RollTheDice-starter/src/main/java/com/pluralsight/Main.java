@@ -22,7 +22,7 @@ public class Main
 
             addition = dice1 + dice2;
 
-            //System.out.printf("roll %d: %d - %d Sum: %d \n", i,roll1,roll1,addition);
+            System.out.printf("roll %d: %d - %d Sum: %d \n", i,dice1,dice2,addition);
 
             if(addition == 2)
             {
@@ -57,7 +57,7 @@ public class Main
                 continue;
             }
 
-        System.out.printf("Roll %d: %d - %d Sum: %d\n", i, dice1, dice2, addition);
+
         }
 
         System.out.println();
