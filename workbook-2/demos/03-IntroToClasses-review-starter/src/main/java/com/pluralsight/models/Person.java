@@ -3,6 +3,7 @@ package com.pluralsight.models;
 // class is a template
 public class Person
 {
+    
     private String firstName;
     private String lastName;
     private int age;

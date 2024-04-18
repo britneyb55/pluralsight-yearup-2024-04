@@ -33,6 +33,8 @@ public class SandwichE2 {
         System.out.print("Would you like your sandwich loaded? ");
         loaded_sandwich = userInput.next();
 
+        
+
         if (loaded_sandwich.equals("yes")) {
 
             if (Sandwich_size == 1 && 17 > age) {
