@@ -15,7 +15,7 @@ public class Main
         int count_7 = 0;
 
 
-        for(int i = 0; i < 100; i++)
+        for(int i = 1 ; i <= 100; i++)
         {
             dice1 = dice.roll();
             dice2 = dice.roll();
@@ -57,7 +57,7 @@ public class Main
                 continue;
             }
 
-          System.out.printf("Roll %d: %d - %d Sum: %d \n", i, dice1, dice2, addition);
+          System.out.printf("Roll %d: %d - %d Sum: %d\n", i, dice1, dice2, addition);
         }
 
         System.out.println();
