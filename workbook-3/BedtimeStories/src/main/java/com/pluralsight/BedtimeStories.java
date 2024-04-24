@@ -41,7 +41,6 @@ public class BedtimeStories
         int fileName = userInput.nextInt();
         return fileName;
     }
-
    public static void goldilocksBook()
    {
        System.out.println();
@@ -54,15 +53,14 @@ public class BedtimeStories
        // 2. I need a file reader to open the file (Scanner)
        try(Scanner fileScanner = new Scanner(file))
        {
-               int lineNumber = 0;
+               int lineNumber = 1;
 
                // 3. read the contents of the file
                while(fileScanner.hasNext())
                {
                    String line = fileScanner.nextLine();
-
-                   lineNumber += 1;
                    System.out.println(lineNumber + " " + line);
+                   lineNumber += 1;
                }
 
        }
@@ -73,9 +71,8 @@ public class BedtimeStories
        }
    }
 
-
-    public static void hanselAndGretel()
-    {
+   public static void hanselAndGretel()
+   {
         System.out.println();
         String filePath = "files/hansel_and_gretel.txt";
         System.out.println("Hansel and Gretel");
@@ -84,14 +81,14 @@ public class BedtimeStories
         // 2. I need a file reader to open the file (Scanner)
         try(Scanner fileScanner = new Scanner(file))
         {
-            int linecount = 0;
+            int linecount = 1;
 
             // 3. read the contents of the file
             while(fileScanner.hasNext())
             {
                 String line = fileScanner.nextLine();
-                linecount+= 1;
                 System.out.println(linecount + " " + line);
+                linecount+= 1;
 
             }
 
@@ -102,11 +99,11 @@ public class BedtimeStories
         }
     }
 
-    public static void marylittleLambBook()
-    {
+   public static void marylittleLambBook()
+   {
         System.out.println();
-        String filePath = "files/mary_has_a_little_lamb.txt";
-        System.out.println("Mary has a little lamb");
+        String filePath = "files/mary_had_a_little_lamb.txt";
+        System.out.println("Mary has a little lamb:");
 
         File file = new File(filePath);
 
@@ -119,8 +116,9 @@ public class BedtimeStories
             while(fileScanner.hasNextLine())
             {
                 String line = fileScanner.nextLine();
-                System.out.println(line);
-                linecount++;
+                System.out.println(linecount + " " + line);
+                linecount+= 1;
+
 
             }
         }

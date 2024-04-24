@@ -13,11 +13,12 @@ public class PayrollCalculator
 
     public static void main(String[] args)
     {
-        employeesGrossPay();
+        loadEmployess();
+        displayEmployee();
 
     }
 
-    public static void employeesGrossPay()
+    public static void loadEmployess()
     {
 
         File file = new File("files/employees.csv");
@@ -37,8 +38,6 @@ public class PayrollCalculator
                 double payRate = Double.parseDouble(columns[3]);
 
                 Employee employee = new Employee(employeeId, name, hoursWorked, payRate);
-                System.out.printf("The employee gross pay:  %-6d %-20s %-4.2f \n", employee.getEmployeeId(),
-                        employee.getName(), employee.getGrossPay());
 
                 employees.add(employee);
             }
@@ -46,6 +45,27 @@ public class PayrollCalculator
         catch(IOException ex)
         {
 
+        }
+
+
+    }
+
+    public static void printEmployees(Employee employee)
+    {
+        System.out.printf(" %-6d %-20s %-4.2f \n",
+                employee.getEmployeeId(),
+                employee.getName(),
+                employee.getGrossPay());
+    }
+
+    public static void displayEmployee()
+    {
+        System.out.println("All Employees Gross Pay:");
+        System.out.println("-".repeat(80));
+
+        for(Employee employee:employees)
+        {
+            printEmployees(employee);
         }
 
     }
