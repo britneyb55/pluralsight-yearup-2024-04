@@ -39,10 +39,10 @@ public class FamousQuotes
 //        }
 //        System.out.println();
 
-        System.out.println("options");
-        System.out.println("Would you like to see another quote based on the number you selected? type yes");
+        System.out.println("Options:");
+        System.out.println("Would you like to select a quote between the number of 1 - 10? Type Yes");
         System.out.println("Want to see a random quote? type in random");
-        System.out.println("Exit - type no");
+        System.out.println("Exit - type No");
         System.out.println();
         System.out.println("Type in your answer: ");
 
@@ -52,7 +52,7 @@ public class FamousQuotes
         {
             try
             {
-                System.out.println("select a number between 1 to 10");
+                System.out.println("Select a quote between the number of 1 to 10");
                 int userQuote = userInput.nextInt();
                 userQuote--;
                 System.out.println(quotes[userQuote]);
