@@ -13,16 +13,41 @@ public class PayrollCalculator
 
     public static void main(String[] args)
     {
-        writeToFileJson();
+        userfile();
+
+    }
+
+    public static void userfile()
+    {
+        System.out.println("Enter the name of the file employee file to process employees.csv:");
+        String employeeFile = userInput.nextLine().strip();
+
+        // Load employees from the specified file
+        loadEmployess(employeeFile);
+
+        System.out.println("Enter the formate of a file that you would like to create a (csv or json) : ");
+        System.out.println("csv:");
+        System.out.println("json:");
+        String userCsvOrJsonFile = userInput.nextLine().strip();
+
+        if ( userCsvOrJsonFile.equalsIgnoreCase("csv"))
+        {
+           writeToFile();
+        }
+        else if(userCsvOrJsonFile.equalsIgnoreCase( "json"))
+        {
+            writeToFileJson();
+        }
+        else{
+             userfile();
+        }
+
 
     }
 
 
-
-
-            public static void writeToFile() {
-                String existfileName = exitingFile();
-                loadEmployess(existfileName);
+            public static void writeToFile()
+            {
                 String fileName = userFilerequest();
 
                 try (FileWriter writer = new FileWriter("files/" + fileName))
@@ -68,32 +93,7 @@ public class PayrollCalculator
 
             }
 
-            public static String exitingFile() {
-                String employeefile;
-                System.out.println();
-                System.out.println("Enter the name of the file employee file to process employees.csv:");
-                employeefile = userInput.nextLine().strip();
-                return employeefile;
-            }
-
-            public static String userFilerequest() {
-                String newPayrollFile;
-                System.out.println("Enter the name of the payroll file to create: (e.g., payroll-sept-2023.csv):");
-                newPayrollFile = userInput.nextLine().strip();
-                return newPayrollFile;
-            }
-
-            public static String jsonPayrollFile() {
-
-                System.out.println("Enter the name of the payroll file to create(e.g. payroll-sept-2023.json):");
-                String newPayrollFile = userInput.nextLine().strip();
-                return newPayrollFile;
-
-            }
-
             public static void writeToFileJson() {
-                String existfileName = exitingFile();
-                loadEmployess(existfileName);
                 String fileName = jsonPayrollFile();
 
 
@@ -118,6 +118,24 @@ public class PayrollCalculator
                     System.out.println("File failed");
                 }
             }
+
+
+            public static String userFilerequest() {
+                String newPayrollFile;
+                System.out.println("Enter the name of the payroll file to create: (e.g., payroll-sept-2023.csv):");
+                newPayrollFile = userInput.nextLine().strip();
+                return newPayrollFile;
+            }
+
+            public static String jsonPayrollFile() {
+
+                System.out.println("Enter the name of the payroll file to create(e.g. payroll-sept-2023.json):");
+                String newPayrollFile = userInput.nextLine().strip();
+                return newPayrollFile;
+
+            }
+
+
 
 
 }
