@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOError;
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -10,9 +11,11 @@ import java.util.Scanner;
 public class PayrollCalculator
 {
     private static ArrayList<Employee> employees = new ArrayList<>();
+    private static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args)
     {
+
         loadEmployess();
         displayEmployee();
 
@@ -48,6 +51,7 @@ public class PayrollCalculator
         }
 
 
+
     }
 
     public static void printEmployees(Employee employee)
@@ -69,5 +73,7 @@ public class PayrollCalculator
         }
 
     }
+
+
 
 }

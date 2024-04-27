@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class ProductLoader
@@ -43,5 +44,17 @@ public class ProductLoader
         }
 
         return products;
+    }
+
+    public HashMap<Integer, Product> loadProductMap()
+    {
+        HashMap<Integer, Product> map = new HashMap<>();
+        ArrayList<Product> products = loadProducts();
+
+        for (Product product: products)
+        {
+            map.put(product.getId(), product)
+        }
+        return productMap;
     }
 }

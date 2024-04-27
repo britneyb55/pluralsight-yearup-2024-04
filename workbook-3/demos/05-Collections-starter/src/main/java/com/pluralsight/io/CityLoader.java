@@ -21,6 +21,8 @@ public class CityLoader
             Scanner scanner = new Scanner(fileReader);
         )
         {
+            //Skip header
+            scanner.nextLine();
             while(scanner.hasNextLine())
             {
                 String line = scanner.nextLine();
