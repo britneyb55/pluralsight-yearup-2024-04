@@ -46,25 +46,45 @@ public class Room
         return isAvailable();
     }
 
-    public void checkIn()
+    public boolean checkIn()
     {
-        dirty = true;
-        occupied = true;
-        System.out.println("Successfully check in ");
+
+        if(isOccupied() == true && isDirty() == true)
+        {
+            System.out.println("Room is not available");
+            return false;
+        }else{
+            dirty = true;
+            occupied = true;
+            System.out.println("Successfully check in ");
+            return true;
+
+        }
+
 
     }
 
     public void checkOut()
     {
         occupied = false;
+        dirty = true;
         System.out.println("Successfully check out");
+        System.out.println("It is not occupied but it is dirty");
     }
 
 
-    public void cleanRoom()
+    public boolean cleanRoom()
     {
-        dirty = false;
-        System.out.println("Room is available and ready to use" );
+        if(isOccupied() == true)
+        {
+            System.out.println("Room is still Occupied cannot be clean");
+            return false;
+        }
+        else {
+            dirty = false;
+            System.out.println("Room is available and ready to use");
+            return true;
+        }
     }
 
 

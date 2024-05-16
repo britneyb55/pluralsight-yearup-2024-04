@@ -20,13 +20,16 @@ public class Main
         room.checkOut();
         room.cleanRoom();
 
-        Ana.punchIn(10);
-        Ana.punchOut(18.5);
+       Ana.punchIn(10);
+       Ana.punchOut(18.5);
        System.out.println(Ana.getHoursWorked());
 
         Ana.punchIn();
         Ana.punchOut();
         System.out.println(Ana.getHoursWorked());
+
+        Room room1 = new Room(2,100,true,true);
+        System.out.println(room1.getisAvaliable());
 
 
 

@@ -130,6 +130,7 @@ public class Employee
     }
 
 
+
     public void punchOut(double time)
     {
         this.timeEnd = time;
@@ -150,8 +151,6 @@ public class Employee
         double timeIn = hour + (min / 60.0);
         System.out.println(" Successfully Punch in at " + timeIn);
         punchIn(timeIn);
-
-
     }
 
     public void punchOut()
@@ -161,12 +160,11 @@ public class Employee
         String hours = today.format(formateTime);
         DateTimeFormatter formatMin = DateTimeFormatter.ofPattern("mm");
         String minutes = today.format(formatMin);
-        int hour = Integer.parseInt(hours);
-        int min =  Integer.parseInt(minutes);
+        double hour = Double.parseDouble(hours);
+        double min =  Double.parseDouble(minutes);
         double time = hour + (min / 60.0);
 
         System.out.println(" Successfully Punch out at " + time);
-
         punchOut(time);
 
     }
