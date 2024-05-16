@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import com.pluralsight.models.Asset;
 import com.pluralsight.models.House;
 import com.pluralsight.models.Vehicle;
 
