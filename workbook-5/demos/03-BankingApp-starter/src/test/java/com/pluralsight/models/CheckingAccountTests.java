@@ -50,6 +50,7 @@ class CheckingAccountTests
         double withdrawalAmount = 5500;
         double expectedNewBalance = -500;
 
+
         // act
         double actualReturnValue = account.withdraw(withdrawalAmount);
 

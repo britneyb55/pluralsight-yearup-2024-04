@@ -11,7 +11,7 @@ class BankAccountTests
     public void withdraw_shouldDecreaseBalance_byWithdrawalAmount()
     {
         // arrange
-        BankAccount account = new BankAccount(123, "Angelica", 5000);
+        BankAccount account = new CheckingAccount(123, "Angelica", 5000);
         double withdrawalAmount = 500;
         double expectedNewBalance = 4500;
 
@@ -31,7 +31,7 @@ class BankAccountTests
     public void deposit_shouldIncreaseBalance_byDepositAmount()
     {
         // arrange
-        BankAccount account = new BankAccount(123, "Angelica", 5000);
+        BankAccount account = new CheckingAccount(123, "Angelica", 5000);
         double withdrawalAmount = 500;
         double expectedNewBalance = 5500;
 
@@ -46,4 +46,45 @@ class BankAccountTests
         double actualNewBalance = account.getBalance();
         assertEquals(expectedNewBalance, actualNewBalance, "Because the account had $5000 and I deposited $500");
     }
+
+    @Test
+    public void transfer_shouldMoveMoney_fromOneAccount_toAnother()
+    {
+        //assert
+        BankAccount fromAccount = new SavingsAccount(123, "Angelica", 5000);
+        BankAccount toAccount = new CheckingAccount(123, "Alan", 5000);
+
+        //act
+        boolean transferSucceded = fromAccount.transfer(toAccount,500);
+
+        double expectedFromBalance = 4500;
+        double expectedToBalance = 5500;
+        double actualFromBalance = fromAccount.getBalance();
+        double actualToBalance = toAccount.getBalance();
+
+        assertTrue(transferSucceded, "Because $500 should have been moved from Angelica's account to Fahd");
+        assertEquals(expectedFromBalance, actualFromBalance);
+        assertEquals(expectedToBalance, actualToBalance);
+    }
+
+    @Test
+    public void transfer_shouldNotMoveMoney_whenSavingsAccount_hasInsufficientFunds()
+    {
+        //assert
+        BankAccount fromAccount = new SavingsAccount(123, "Guy", 5000);
+        BankAccount toAccount = new CheckingAccount(123, "Guy", 1000);
+
+        //act
+        boolean transferSucceeded = fromAccount.transfer(toAccount,5000);
+
+        double expectedFromBalance = 5000;
+        double expectedToBalance = 1000;
+        double actualFromBalance = fromAccount.getBalance();
+        double actualToBalance = toAccount.getBalance();
+
+        assertFalse(transferSucceeded, "Because a savings account has a minimum balance of $25");
+        assertEquals(expectedFromBalance, actualFromBalance, "Because no money should have been transferred");
+        assertEquals(expectedToBalance, actualToBalance,"Because no money should have been transferred");
+    }
+
 }

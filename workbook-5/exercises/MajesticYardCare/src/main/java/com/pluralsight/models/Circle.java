@@ -1,5 +1,7 @@
 package com.pluralsight.models;
 
+import static java.lang.Math.PI;
+
 public class Circle extends Shape
 {
     private int radius;
@@ -13,7 +15,8 @@ public class Circle extends Shape
     @Override
     public double getArea()
     {
-        return 0.0;
+
+        return PI * Math.pow(radius,2);
     }
 
     @Override

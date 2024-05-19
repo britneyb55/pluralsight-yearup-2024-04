@@ -1,6 +1,6 @@
 package com.pluralsight.models;
 
-public class BankAccount
+public abstract class BankAccount
 {
     private int accountNumber;
     private String owner;
@@ -44,4 +44,18 @@ public class BankAccount
     {
         return true;
     }
+
+    public boolean transfer(BankAccount destination, double amount)
+    {
+       if(canWithdraw(amount))
+       {
+           withdraw(amount);
+           destination.deposit(amount);
+           return true;
+
+       }
+       return false;
+    }
+
+
 }
