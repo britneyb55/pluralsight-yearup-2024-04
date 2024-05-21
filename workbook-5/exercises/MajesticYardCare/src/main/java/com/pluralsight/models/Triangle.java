@@ -25,7 +25,9 @@ public class Triangle extends Shape
     @Override
     public double getArea()
     {
-        return 0;
+        int wholeArea = getBase() * getHeight();
+        int triangleArea = wholeArea/2;
+        return triangleArea;
     }
 
     @Override

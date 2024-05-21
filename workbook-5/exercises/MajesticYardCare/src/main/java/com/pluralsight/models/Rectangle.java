@@ -24,6 +24,7 @@ public class Rectangle extends Shape
 
     public int getWidth()
     {
+
         return width;
     }
 
@@ -36,7 +37,7 @@ public class Rectangle extends Shape
     public double getArea()
     {
 
-        return 0.0;
+        return getHeight() * getWidth();
     }
 
     @Override

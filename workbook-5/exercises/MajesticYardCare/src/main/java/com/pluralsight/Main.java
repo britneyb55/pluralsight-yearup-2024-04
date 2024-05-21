@@ -16,6 +16,7 @@ public class Main
         {
             System.out.println(shape);
         }
+        
 
 
         // load all shapes into the arraylist
