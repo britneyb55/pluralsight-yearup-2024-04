@@ -39,7 +39,7 @@ public class PeopleBuilder
         people.add(new Person("Ethan", "Dupont", 28));
         people.add(new Person("Clara", "Dubois", 30));
         people.add(new Person("Leo", "Nascimento", 29));
-        people.add(new Person("Maria", "Ferreira", 32));
+        people.add(new Person("Maria", "Ferreira", 19));
 
         return people;
     }

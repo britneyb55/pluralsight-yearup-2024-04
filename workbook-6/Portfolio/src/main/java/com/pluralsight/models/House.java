@@ -13,9 +13,22 @@ public class House extends FixedAsset
         this.bedrooms = bedrooms;
     }
 
+    public int getYearBuilt() {
+        return yearBuilt;
+    }
+
+    public int getSquareFeet() {
+        return squareFeet;
+    }
+
+    public int getBedrooms() {
+        return bedrooms;
+    }
 
     @Override
-    public double getValue() {
-        return 0;
+    public double getValue()
+    {
+        int bedroomsValueSize = getBedrooms() * getSquareFeet();
+        return getMarketValue() * bedroomsValueSize;
     }
 }

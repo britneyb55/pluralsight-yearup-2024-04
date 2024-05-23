@@ -9,10 +9,13 @@ public class Jewelry extends FixedAsset
         this.karat = karat;
     }
 
+    public double getKarat() {
+        return karat;
+    }
 
     @Override
     public double getValue()
     {
-        return 0;
+        return getMarketValue() * getKarat() ;
     }
 }
