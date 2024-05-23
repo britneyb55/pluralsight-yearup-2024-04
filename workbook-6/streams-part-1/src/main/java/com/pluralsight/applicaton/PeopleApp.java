@@ -45,11 +45,6 @@ public class PeopleApp
         UserInterface.displayPeople(people, "List of All People");
     }
 
-
-
-    /* ********************************************
-    BEGIN Search by name
-    ********************************************* */
     private void searchByName()
     {
         // prompt user for first name and display all people with that name
@@ -57,15 +52,7 @@ public class PeopleApp
         List<Person> searchResults = service.findPeople(people, name);
         UserInterface.displayPeople(searchResults, "Search people by name: " + name);
     }
-    /* ********************************************
-    END Search by name
-    ********************************************* */
 
-
-
-    /* ********************************************
-    BEGIN Search by age
-    ********************************************* */
     private void searchByAge()
     {
         // prompt user for an age and display all people with that age
@@ -73,30 +60,14 @@ public class PeopleApp
         List<Person> searchResults = service.findPeople(people, age);
         UserInterface.displayPeople(searchResults, "Search people by age: " + age);
     }
-    /* ********************************************
-    END Search by age
-    ********************************************* */
 
-
-
-    /* ********************************************
-    BEGIN Display average age
-    ********************************************* */
     private void displayAverageAge()
     {
         // calculate and display the average age of all people in the list
         int averageAge = service.calculateAverageAge(people);
         UserInterface.displayMessage("The average age of all people is: " + averageAge);
     }
-    /* ********************************************
-    END Display average age
-    ********************************************* */
 
-
-
-    /* ********************************************
-    BEGIN Display oldest age
-    ********************************************* */
     private void displayOldestAge()
     {
         // find and display the age of the oldest person in the list
@@ -104,15 +75,7 @@ public class PeopleApp
         int oldest = service.findOldestAge(people);
         UserInterface.displayMessage("The oldest person is: " + oldest + " years old");
     }
-    /* ********************************************
-    END Display oldest age
-    ********************************************* */
 
-
-
-    /* ********************************************
-    BEGIN Display youngest age
-    ********************************************* */
     private void displayYoungestAge()
     {
         // find and display the age of the youngest person in the list
