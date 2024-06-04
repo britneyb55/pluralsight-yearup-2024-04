@@ -11,19 +11,29 @@ public class PersonService
 
     public List<Person> findPeople(List<Person> people, String name)
     {
+        List<Person> firstName = people.stream()
+                                        .filter(person -> person.getFirstName().equalsIgnoreCase(name))
+                                        .toList();
         // search for people by first name
         // return a new List<Person> with the search results
-        return new ArrayList<>();
+        return firstName;
     }
 
     public List<Person> findPeople(List<Person> people, int age)
     {
-        return new ArrayList<>();
+        List<Person> peopleByAge = people.stream()
+                                         .filter(person -> person.getAge() == age)
+                                         .toList();
+        return peopleByAge;
     }
 
     public int calculateAverageAge(List<Person> people)
     {
-        return 0;
+        var averageAge = people.stream()
+                .mapToInt(Integer::getAge)
+                .average();
+
+        return averageAge;
     }
 
     public int findOldestAge(List<Person> people)

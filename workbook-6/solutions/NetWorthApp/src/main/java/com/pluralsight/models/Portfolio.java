@@ -13,6 +13,7 @@ public class Portfolio implements Valuable
     private List<Valuable> valuables;
 
     public Portfolio(String name, String owner)
+
     {
         this.name = name;
         this.owner = owner;
