@@ -23,7 +23,7 @@ SET UnitPrice = UnitPrice + 0.525
 WHERE ProductID = 78; 
 
 
-
+-- The list of all products and prices from all the suppliers
 SELECT p.ProductName
 	, p.UnitPrice
 	, s.CompanyName
@@ -35,10 +35,10 @@ ON p.SupplierID = s.SupplierID
 -- DELETE THE New Product
 SELECT * 
 FROM Products
-WHERE ProductID = 79;
+WHERE ProductID = 78;
 
 DELETE FROM Products
-WHERE ProductID = 79; 
+WHERE ProductID = 78; 
 
 -- DELETE The New Supplier
 SELECT *
@@ -46,10 +46,10 @@ FROM Suppliers;
 
 SELECT * 
 FROM Suppliers 
-WHERE SupplierID = 34; 
+WHERE SupplierID = 30; 
 
 DELETE FROM Suppliers
-WHERE SupplierID = 34; 
+WHERE SupplierID = 30; 
 
 -- List all Products
 SELECT *
