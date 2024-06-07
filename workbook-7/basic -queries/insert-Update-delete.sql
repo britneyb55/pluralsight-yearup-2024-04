@@ -11,20 +11,18 @@ SELECT LAST_INSERT_ID();
 INSERT INTO Products(ProductName, QuantityPerUnit, UnitPrice, UnitsInStock, Discontinued)
 VALUES ('MASA', '4.4 pounds', 3.50, 10, 0);
 
-
-
-UPDATE Products
-SET SupplierID = 34
-WHERE ProductID = 78; 
-
+-- List All products and their supplies
 SELECT *
-FROM Products AS p 
-RIGHT JOIN Suppliers as s
+FROM products as p 
+INNER JOIN Suppliers as s
 ON p.SupplierID = s.SupplierID;
 
+-- rise the price 15% of the new product of the MASA
 UPDATE Products
 SET UnitPrice = UnitPrice + 0.525
 WHERE ProductID = 78; 
+
+
 
 SELECT p.ProductName
 	, p.UnitPrice
