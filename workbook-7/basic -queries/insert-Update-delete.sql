@@ -22,6 +22,10 @@ UPDATE Products
 SET UnitPrice = UnitPrice + 0.525
 WHERE ProductID = 78; 
 
+-- round
+SELECT ROUND(AVG(UnitPrice),2)
+FROM Products;
+
 
 -- The list of all products and prices from all the suppliers
 SELECT p.ProductName
