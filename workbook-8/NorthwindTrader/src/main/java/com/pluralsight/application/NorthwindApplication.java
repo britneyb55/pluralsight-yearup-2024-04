@@ -1,23 +1,56 @@
-package com.pluralsight;
+package com.pluralsight.application;
+import org.apache.commons.dbcp2.BasicDataSource;
 
-import com.pluralsight.application.NorthwindApplication;
-
+import javax.sql.DataSource;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.*;
+import java.util.Properties;
+import java.util.Scanner;
 
-import  java.util.Scanner;
 
-public class Main 
+
+public class NorthwindApplication
 {
-    private static Scanner scanner = new Scanner(System.in);
+    DataSource dataSource;
+    private String connectionString;
+    private String username;
+    private String password;
+    private Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) throws ClassNotFoundException
+    public NorthwindApplication()
     {
-        NorthwindApplication app = new NorthwindApplication();
-        app.run();
+        readProperties();
 
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setUrl(connectionString);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        this.dataSource = dataSource;
     }
 
-    private static int homescreen()
+    private void readProperties()
+    {
+        Properties properties = new Properties();
+        try(FileInputStream stream = new FileInputStream("src/main/resources/config.properties"))
+        {
+            properties.load(stream);
+            connectionString = properties.getProperty("db.connectionstring");
+            username = properties.getProperty("db.username");
+            password = properties.getProperty("db.password");
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void run()
+    {
+        display();
+    }
+
+    private int homescreen()
     {
         System.out.println();
         System.out.println("What do you want to do?");
@@ -29,7 +62,7 @@ public class Main
         return Integer.parseInt(scanner.nextLine());
     }
 
-    public static void display() throws ClassNotFoundException {
+    public void display(){
         while (true) {
             int userChoice = homescreen();
 
@@ -51,21 +84,15 @@ public class Main
         }
     }
 
-    private static void product() throws ClassNotFoundException
+    private void product()
     {
         System.out.println("Select a category to display the product in our store:");
         int userChoice  = Integer.parseInt(scanner.nextLine());
 
-        String connectionString = "jdbc:mysql://localhost:3306/northwind";
-        String username = "root";
-        String password = "YUm15510n";
-
-        // load the MySQL Driver
-        Class.forName("com.mysql.cj.jdbc.Driver");
 
         // 1. open a connection to the database
         // use the database URL to point to the correct database
-        try(Connection connection = DriverManager.getConnection(connectionString, username, password))
+        try(Connection connection = dataSource.getConnection())
         {
 
             // 2. execute a statement
@@ -113,19 +140,11 @@ public class Main
 
     }
 
-    private static void DisplayAllCategories() throws ClassNotFoundException {
-        String username = "root";
-        String password = "YUm15510n";
+    private void DisplayAllCategories()  {
 
-        try
+
+        try(Connection connection = dataSource.getConnection())
         {
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection connection;
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/northwind",
-                    username,
-                    password);
 
             String sql = """
                     SELECT CategoryID
@@ -162,20 +181,14 @@ public class Main
 
     }
 
-    private static void displayAllCustomers()
+    private void displayAllCustomers()
     {
-        String username = "root";
-        String password = "YUm15510n";
 
-        try
+
+        try(Connection connection = dataSource.getConnection())
         {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection connection;
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/northwind",
-                    username,
-                    password);
 
             String sql = """
                     SELECT ContactName
@@ -215,20 +228,12 @@ public class Main
 
     }
 
-    private static void displayAllProducts()
+    private  void displayAllProducts()
     {
-        String username = "root";
-        String password = "YUm15510n";
 
-        try
+        try(Connection connection = dataSource.getConnection())
         {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            Connection connection;
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/northwind",
-                    username,
-                    password);
 
             String sql = """
                  SELECT ProductID
@@ -262,7 +267,7 @@ public class Main
 
     }
 
-    public static void sqlConector()
+    public  void sqlConector()
     {
         String username = "root";
         String password = "YUm15510n";
@@ -309,5 +314,5 @@ public class Main
             System.out.println( e.getMessage());
         }
     }
-}
 
+}
