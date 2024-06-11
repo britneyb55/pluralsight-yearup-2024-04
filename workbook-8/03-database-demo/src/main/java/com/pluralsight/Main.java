@@ -16,24 +16,27 @@ public class Main
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection connection;
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/northwind",
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world",
                     username,
                     password);
 
             String sql = """
-                 SELECT ProductID
-                         ,ProductName
-                 FROM northwind.Products;   
+                    SELECT Id
+                        , Name
+                        , CountryCode
+                    FROM city;
                  """;
 
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
 
-            while (resultSet.next()) {
-                int id = resultSet.getInt("ProductID");
-                String productName = resultSet.getString("ProductName");
+            while (resultSet.next())
+            {
+                int id = resultSet.getInt("Id");
+                String name = resultSet.getString("Name");
+                String country = resultSet.getString("CountryCode");
 
-                System.out.printf("%3d  %-30s\n", id, productName);
+                System.out.printf("%3d  %-30s %s\n", id, name, country);
             }
 
             connection.close();
