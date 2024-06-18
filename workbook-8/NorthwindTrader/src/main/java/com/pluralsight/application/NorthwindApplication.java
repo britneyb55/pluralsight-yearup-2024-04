@@ -267,7 +267,7 @@ public class NorthwindApplication
 
     }
 
-    public  void sqlConector()
+    public void sqlConector()
     {
         String username = "root";
         String password = "YUm15510n";

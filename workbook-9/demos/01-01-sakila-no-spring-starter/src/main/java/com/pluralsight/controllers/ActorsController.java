@@ -2,15 +2,21 @@ package com.pluralsight.controllers;
 
 import com.pluralsight.models.Actor;
 import com.pluralsight.services.ActorsDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
+@Controller
 public class ActorsController
 {
     // controller dependencies
     private ActorsDao actorsDao;
 
     // constructor dependency injection
+    //it looks for a dataSource beam
+    //looks for a beam
+    @Autowired
     public ActorsController(ActorsDao actorsDao)
     {
         this.actorsDao = actorsDao;

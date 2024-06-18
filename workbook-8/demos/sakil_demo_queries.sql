@@ -21,7 +21,7 @@ SELECT f.film_id
     , f.length
 FROM film AS f
 INNER JOIN film_category AS fc
-    ON f.film_id = fc.film_id
+    Ofilm_actorN f.film_id = fc.film_id
 WHERE fc.category_id = 3 ;
 
 -- list of actors by film_id

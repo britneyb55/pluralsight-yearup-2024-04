@@ -1,5 +1,6 @@
 package com.pluralsight.application;
 
+import com.pluralsight.controllers.ActorsController;
 import com.pluralsight.models.Actor;
 import com.pluralsight.views.ActorRowView;
 import com.pluralsight.views.HomeView;
@@ -8,11 +9,11 @@ import java.util.List;
 
 public class SakilaMoviesApplication
 {
-    private final ApplicationConfiguration config;
+    private final ActorsController actorsController;
 
-    public SakilaMoviesApplication(ApplicationConfiguration config)
+    public SakilaMoviesApplication(ActorsController actorsController)
     {
-        this.config = config;
+        this.actorsController = actorsController;
     }
 
 
@@ -41,7 +42,7 @@ public class SakilaMoviesApplication
         var view = new ActorRowView();
 
         // go to the Actors controller and get a list of actors
-        List<Actor> actors = config.actorsController.findAllActors();
+        List<Actor> actors = actorsController.findAllActors();
 
         // call the ActorListView and pass in the returned list
         view.displayActors(actors);
